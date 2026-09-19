@@ -1,0 +1,1203 @@
+:: StoryTitle
+StoryDisplayTitle
+
+
+:: StoryData
+{
+  "ifid": "2083EC58-F146-479C-83D4-48E72DFABE63",
+  "format": "SugarCube",
+  "format-version": "2.37.3",
+  "start": "Welcome",
+  "tag-colors": {
+    "Widget": "blue",
+    "widget": "purple"
+  },
+  "zoom": 0.6
+}
+
+
+:: Answers {"position":"225,575","size":"100,100"}
+<<set $answer_12 = "b">>
+<<set $answer_20 = "a">>
+
+
+:: Bonus_12 {"position":"825,275","size":"100,100"}
+<<if $mode !== "veteran">>\
+    <<goto "Pt13">>\
+<<else>>\
+    <<include "Answers">>\
+    <<print $t_bonus_12_title>>\
+    <div id="bonus_12_options" class="bonus-options">\
+        <<button `$t_bonus_12_a`>>\
+            <<set $grade += 0>>\
+            <<replace "#bonus_12_options">>\
+                <div class="bonus-feedback"><<print $t_bonus_12_wrong>></div>\
+                <<link `$t_bonus_continue` "Pt13">><</link>>\
+            <</replace>>\
+        <</button>>\
+        <<button `$t_bonus_12_b`>>\
+            <<set $grade += 20>>\
+            <<replace "#bonus_12_options">>\
+                <div class="bonus-feedback"><<print $t_bonus_12_correct>></div>\
+                <<link `$t_bonus_continue` "Pt13">><</link>>\
+            <</replace>>\
+        <</button>>\
+        <<button `$t_bonus_12_c`>>\
+            <<set $grade += 0>>\
+            <<replace "#bonus_12_options">>\
+                <div class="bonus-feedback"><<print $t_bonus_12_wrong>></div>\
+                <<link `$t_bonus_continue` "Pt13">><</link>>\
+            <</replace>>\
+        <</button>>\
+        <<button `$t_skip_bonus` "Pt13">><</button>>\
+    </div>\
+<</if>>
+
+
+:: Bonus_20 {"position":"825,400","size":"100,100"}
+<<if $mode !== "veteran">>\
+    <<goto "Finish">>\
+<<else>>\
+    <<include "Answers">>\
+    <<print $t_bonus_20_title>>\
+    <div id="bonus_20_options" class="bonus-options">\
+        <<button `$t_bonus_20_a`>>\
+            <<set $grade += 10>>\
+            <<replace "#bonus_20_options">>\
+                <div class="bonus-feedback"><<print $t_bonus_20_correct>></div>\
+                <<link `$t_bonus_continue` "Extra">><</link>>\
+            <</replace>>\
+        <</button>>\
+        <<button `$t_bonus_20_b`>>\
+            <<set $grade += 0>>\
+            <<replace "#bonus_20_options">>\
+                <div class="bonus-feedback"><<print $t_bonus_20_wrong>></div>\
+                <<link `$t_bonus_continue` "Extra">><</link>>\
+            <</replace>>\
+        <</button>>\
+        <<button `$t_bonus_20_c`>>\
+            <<set $grade += 0>>\
+            <<replace "#bonus_20_options">>\
+                <div class="bonus-feedback"><<print $t_bonus_20_wrong>></div>\
+                <<link `$t_bonus_continue` "Extra">><</link>>\
+            <</replace>>\
+        <</button>>\
+        <<button `$t_bonus_20_d`>>\
+            <<set $grade += 0>>\
+            <<replace "#bonus_20_options">>\
+                <div class="bonus-feedback"><<print $t_bonus_20_wrong>></div>\
+                <<link `$t_bonus_continue` "Extra">><</link>>\
+            <</replace>>\
+        <</button>>\
+        <<button `$t_skip_bonus` "Finish">><</button>>\
+    </div>\
+<</if>>
+
+
+:: Extra {"position":"825,525","size":"100,100"}
+<<if $mode === "freshman">>\
+    <<goto "Finish">>\
+<<else>>\
+    <<if $lang === "zh">><<include "Lang_ZH">><<else>><<include "Lang_EN">><</if>>\
+    /* ===== 第1题 ===== */\
+    <img src="img/extra.jpg" class="extra-image">\
+    <<print $t_extra_title>>\
+    <div class="extra-subtitle"><<print $t_extra1_title>></div>\
+    <div id="extra1_options" class="bonus-options">\
+        <<button `$t_extra_0`>>\
+            <<set $grade += 0>>\
+            <<replace "#extra1_options">>\
+                <div class="bonus-feedback"><<print $t_extra1_result_0>></div>\
+                <<link `$t_bonus_continue` "Extra2">><</link>>\
+            <</replace>>\
+        <</button>>\
+        <<button `$t_extra_50`>>\
+            <<set $grade += 15>>\
+            <<replace "#extra1_options">>\
+                <div class="bonus-feedback"><<print $t_extra1_result_50>></div>\
+                <<link `$t_bonus_continue` "Extra2">><</link>>\
+            <</replace>>\
+        <</button>>\
+        <<button `$t_extra_100`>>\
+            <<set $grade += 30>>\
+            <<replace "#extra1_options">>\
+                <div class="bonus-feedback"><<print $t_extra1_result_100>></div>\
+                <<link `$t_bonus_continue` "Extra2">><</link>>\
+            <</replace>>\
+        <</button>>\
+        <<button `$t_skip_extra` "Finish">><</button>>\
+    </div>\
+<</if>>
+
+
+:: Extra2 {"position":"825,650","size":"100,100"}
+<img src="img/extra.jpg" class="extra-image">\
+<div class="extra-subtitle"><<print $t_extra2_title>></div>\
+<div id="extra2_options" class="bonus-options">\
+    <<button `$t_extra_0`>>\
+        <<set $grade += 0>>\
+        <<replace "#extra2_options">>\
+            <div class="bonus-feedback"><<print $t_extra2_result_0>></div>\
+            <<link `$t_bonus_continue` "Finish">><</link>>\
+        <</replace>>\
+    <</button>>\
+    <<button `$t_extra_50`>>\
+        <<set $grade += 20>>\
+        <<replace "#extra2_options">>\
+            <div class="bonus-feedback"><<print $t_extra2_result_50>></div>\
+            <<link `$t_bonus_continue` "Finish">><</link>>\
+        <</replace>>\
+    <</button>>\
+    <<button `$t_extra_100`>>\
+        <<set $grade += 40>>\
+        <<replace "#extra2_options">>\
+            <div class="bonus-feedback"><<print $t_extra2_result_100>></div>\
+            <<link `$t_bonus_continue` "Finish">><</link>>\
+        <</replace>>\
+    <</button>>\
+    <<button `$t_skip_extra` "Finish">><</button>>\
+</div>\
+
+
+:: Finish {"position":"950,275","size":"100,100"}
+/* 如果这局游戏还没被记录过，就记录并降序排序 */\
+<<if !$recorded>>\
+    <<set $leaderboard.push({ name: $name, mode: $mode, grade: $grade })>>\
+    <<set $leaderboard.sort((a, b) => b.grade - a.grade)>>\
+    <<set $recorded to true>>\
+<</if>>\
+
+/* 显示当前得分 */\
+<<print $t_finish + $grade + $t_points>>
+
+/* 显示排行榜 */\
+<<print $t_board>>\
+<<if $leaderboard.length === 0>>\
+    <<print $t_noRecord>>\
+<<else>>\
+    <<for _i, _entry range $leaderboard>>\
+        <div class="leaderboard-row">\
+            <b class="leaderboard-name"><<print (_i + 1) + ". " + _entry.name>></b>\
+            <span class="leaderboard-score">\
+                <<print _entry.grade + $t_points>>\
+            </span>\
+            <span class="leaderboard-mode">\
+                <<if _entry.mode === "freshman">>\
+                    <<print $t_mode_freshman>>\
+                <<else>>\
+                    <<print $t_mode_veteran>>\
+                <</if>>\
+            </span>\
+        </div>\
+    <</for>>\
+<</if>>\
+
+/* 自定义重新开始按钮 */\
+<<set _btn_label = $t_restart>>\
+<<button _btn_label>>\
+    <<set $name = "NoName">>\
+    <<set $mode to "noMode">>\
+    <<set $grade to 0>>\
+    <<set $recorded to false>>\
+    <<goto "Welcome">>\
+<</button>>\
+
+<<speech "Club" $t_club>><<print $t_QRcode>><</speech>>\
+<img src="img/QRcode.jpg" class="finish-qrcode">
+
+
+:: Lang_EN {"position":"225,325","size":"100,100"}
+<<nobr>>
+
+/* Opening */
+<<set $t_game_titile = "Orienteering Game">>
+<<set $t_club = "SUSTech Orienteering Club">>
+<<set $t_you = "You">>
+<<set $t_enter_name = "Please enter your name.">>
+<<set $t_completed = "Completed.">>
+<<set $t_continue = "Continue">>
+<<set $t_name_edited_completely_welcome = "Welcome, ">>
+<<set $t_exclamation =" !">>
+<<set $t_background = "Your friend H is a seasoned orienteering expert. One day, out of nowhere, they got their hands on a free entry to an orienteering competition—lodging and round-trip travel included. No sooner had H received the news than they began muttering to themselves. Just then, you happened to walk past. You did a quick mental check—you're free on the day of the competition, and it could be fun. So you step up to H and say:">>
+<<set $t_welcome_mode_noMode = "Please select">>
+<<set $t_welcome_mode_freshman = "I'm a total beginner at orienteering. Would it be okay if I came along with you to this competition?">>
+<<set $t_welcome_mode_veteran = "I have some orienteering knowledge and experience. Would it be okay if I came along with you to this competition?">>
+<<set $t_experience = "Please select your orienteering experience first!">>
+<<set $t_mode_freshman = "Beginner">>
+<<set $t_mode_veteran = "Veteran">>
+<<set $t_mode_none = "Not selected">>
+<<set $t_go_together = "Sure, let's head out together!">>
+
+/* Place */
+<<set $t_place = "The venue for this competition is Gulangyu Island in Xiamen, Fujian. Blending history, humanity and natural landscapes, Gulangyu is home to over a thousand buildings of diverse architectural styles. It is known as the \"Island of Pianos\" and \"Hometown of Music\". It has been awarded honors including National 5A-level Tourist Attraction and Major Historical and Cultural Site Protected at the National Level. \"Kulangsu: A Historic International Settlement\" is inscribed on the World Heritage List.">>
+
+/* Start */
+<<set $t_start = "Go to start place" >>
+<<set $t_start_intro_freshman = "Here is the starting point. Your competition begins. Each round you must pick one route from several options. Different control points grant different points, with a total of 100 points available. Good luck!">>
+<<set $t_start_intro_veteran = "Here is the starting point. Your competition begins. Each round you must pick one route from several options. Different control points grant different points. Bonus challenges will appear on an irregular basis, for a total of 200 points available. Good luck!">>
+    
+/* Competition */
+<<set $t_route_red to "Red Route">>
+<<set $t_route_blue to "Blue Route">>
+<<set $t_route_orange to "Orange Route">>
+<<set $t_route_brown to "Brown Route">>
+<<set $t_you_choose to "You choose:">>
+<<set $t_target = "Your target is Control Point ">>
+<<set $t_point = "">>
+<<set $t_finish_point = " and Finish Point">>
+<<set $t_quick_end = "End the race early">>
+  
+/* Finish */
+<<set $t_finish = "Congratulations on completing the competition! Your total score: ">>
+<<set $t_points = "Points">>
+<<set $t_board = "Leaderboard">>
+<<set $t_noRecord = "No Records for Now">>
+<<set $t_restart = "Restart">>
+<<set $t_QRcode = "Welcome to join the Orienteering Club QQ Group!">>
+
+/* SideBar */
+<<set $t_sb_player = "Player:">>
+<<set $t_sb_mode = "Mode:">>
+<<set $t_sb_score = "Score:">>
+<<set $t_sb_view_map = "View Full Map">>
+<<set $t_sb_cds_title = "Control Description Sheet:">>
+
+/* Bonus 12 */
+<<set $t_bonus_12_title = "You are now at Control Point 11, facing Control Point 12. What is the sequence of turns at the 4 intersections along the route from Control Point 11 to Control Point 12? (20 points)">>
+<<set $t_bonus_12_a = "A. Left, Straight, Right, Left">>
+<<set $t_bonus_12_b = "B. Right, Left, Straight, Left">>
+<<set $t_bonus_12_c = "C. Straight, Left, Right, Left">>
+<<set $t_bonus_12_correct = "Correct! +20 points">>
+<<set $t_bonus_12_wrong = "Incorrect! No points">>
+<<set $t_bonus_continue = "Continue">>
+<<set $t_skip_bonus = "Skip the bouns question">>
+
+/* Bonus 20 */
+<<set $t_bonus_20_title = "Based on the clue, where is Control Point 20 most likely located? (10 points)">>
+<<set $t_bonus_20_a = "A. Outside the northwest corner of the flowerbed">>
+<<set $t_bonus_20_b = "B. Outside the northwest corner of the prominent tree">>
+<<set $t_bonus_20_c = "C. Outside the southeast corner of the flowerbed">>
+<<set $t_bonus_20_d = "D. Outside the southeast corner of the prominent tree">>
+<<set $t_bonus_20_correct = "Correct! +10 points">>
+<<set $t_bonus_20_wrong = "Incorrect! No points">>
+
+/* Extra */
+
+<<set $t_extra_title = "Advanced Bonus Challenges">>
+<<set $t_extra1_title = "On this map, describe to the staff within 3 minutes the route from Control Point 12 to Control Point 13. You have 3 options. (30 points)">>
+<<set $t_extra2_title = "extra2. On another map, describe to the staff within 3 minutes the route from Control Point 16 to Control Point 17. You have 3 options. (40 points)">>
+<<set $t_extra_0 = "Correct route not found">>
+<<set $t_extra_50 = "Correct route found in over 3 minutes">>
+<<set $t_extra_100 = "Correct route found within 3 minutes">>
+<<set $t_extra1_result_0 = "extra1 score: 0 points">>
+<<set $t_extra1_result_50 = "extra1 score: 15 points">>
+<<set $t_extra1_result_100 = "extra1 score: 30 points">>
+<<set $t_extra2_result_0 = "extra2 score: 0 points">>
+<<set $t_extra2_result_50 = "extra2 score: 20 points">>
+<<set $t_extra2_result_100 = "extra2 score: 40 points">>
+<<set $t_skip_extra = "Skip all advanced bonuses">>
+
+
+/* Points Data */
+<<include "Points_Data">>
+<</nobr>>
+
+
+:: Lang_ZH {"position":"225,200","size":"100,100"}
+<<nobr>>
+
+/* 开场 */
+<<set $t_game_titile = "定向越野游戏">>
+<<set $t_club = "南科大定向队">>
+<<set $t_you = "你">>
+<<set $t_enter_name = "请输入您的名字">>
+<<set $t_completed = "完成">>
+<<set $t_continue = "继续">>
+<<set $t_name_edited_completely_welcome = "欢迎你，">>
+<<set $t_exclamation ="！">>
+<<set $t_background = "你的好友小H是定向越野圈里的高手。这天，ta不知从哪儿弄到了一个定向越野比赛的免费参赛名额，还包食宿和往返交通。小H刚拿到这个消息，就忍不住自顾自地嘀咕起来。恰好这时，你从小H身边经过。你盘算了一下——比赛当天刚好有空，不如去玩玩。于是，你走上前去，对小H说：">>
+<<set $t_welcome_mode_noMode = "请选择……">>
+<<set $t_welcome_mode_freshman = "我是定向越野小白，请问我可以和你一起去参加这个比赛吗？">>
+<<set $t_welcome_mode_veteran = "我有一定的定向越野知识和经验，请问我可以和你一起去参加这个比赛吗？">>
+<<set $t_experience = "请先选择你的定向经验！">>
+<<set $t_mode_freshman = "小白">>
+<<set $t_mode_veteran = "老手">>
+<<set $t_mode_none = "未选择">>
+<<set $t_go_together = "好啊，那我们一起出发吧！">>
+<<set $t_start = "前往起点" >>
+
+/* 地点 */
+<<set $t_place = "这次比赛的地方在福建厦门的鼓浪屿。鼓浪屿融历史、人文和自然景观于一体，留存着千余幢风格各异的建筑，享有“钢琴之岛”“音乐之乡”的美誉。先后获得国家5A级旅游景区、全国重点文物保护单位等荣誉。“鼓浪屿：国际历史社区”被列入世界遗产名录。">>
+
+/* 起点 */
+<<set $t_start_intro_freshman = "这里是起点。你开始了这次比赛。每次你都需要在若干条线路中选择一条路线。不同控制点有不同的分数，总共100分。祝你好运！">>
+<<set $t_start_intro_veteran = "这里是起点。你开始了这次比赛。每次你都需要在若干条线路中选择一条路线。不同控制点有不同的分数，同时不定期会有附加题出现，总共200分。祝你好运！">>
+
+/* 比赛 */
+<<set $t_route_red to "红色路线">>
+<<set $t_route_blue to "蓝色路线">>
+<<set $t_route_orange to "橙色路线">>
+<<set $t_route_brown to "褐色路线">>
+<<set $t_target = "现在的目标是去">>
+<<set $t_point = "号点">>
+<<set $t_finish_point = "及终点">>
+<<set $t_you_choose = "你选择：">>
+<<set $t_quick_end = "提前结束比赛">>
+
+/* 结束 */
+<<set $t_finish = "恭喜您结束比赛！您的总成绩为：">>
+<<set $t_points = "分">>
+<<set $t_board = "历史排行榜">>
+<<set $t_noRecord = "暂无记录">>
+<<set $t_restart = "重新开始">>
+<<set $t_QRcode = "欢迎加入定向越野社qq群！">>
+
+/* 侧边栏文本 */
+<<set $t_sb_player = "玩家：">>
+<<set $t_sb_mode = "模式：">>
+<<set $t_sb_score = "得分：">>
+<<set $t_sb_view_map = "地图">>
+<<set $t_sb_cds_title = "检查点说明表：">>
+
+/* 附加题12 */
+<<set $t_bonus_12_title = "现在在11号点，面向12号点方向。请问11-12号点的路线依次经过的4个路口的走向。（20分）">>
+<<set $t_bonus_12_a = "A. 左转，直行，右转，左转">>
+<<set $t_bonus_12_b = "B. 右转，左转，直行，左转">>
+<<set $t_bonus_12_c = "C. 直行，左转，右转，左转">>
+<<set $t_bonus_12_correct = "回答正确！+20分">>
+<<set $t_bonus_12_wrong = "回答错误！不加分">>
+<<set $t_bonus_continue = "继续前进">>
+<<set $t_skip_bonus = "跳过附加题">>
+
+/* 附加题20 */
+<<set $t_bonus_20_title = "结合检查点信息，20号检查点最可能放在了哪里？（10分）">>
+<<set $t_bonus_20_a = "A. 花圃的西北角外">>
+<<set $t_bonus_20_b = "B. 醒目树的西北角外">>
+<<set $t_bonus_20_c = "C. 花圃的东南角外">>
+<<set $t_bonus_20_d = "D. 醒目树的东南角外">>
+<<set $t_bonus_20_correct = "回答正确！+10分">>
+<<set $t_bonus_20_wrong = "回答错误！不加分">>
+
+/* 进阶附加题 */
+<<set $t_extra_title = "进阶附加题">>
+<<set $t_extra1_title = "extra1. 另一张地图，5分钟内向工作人员说出12检查点到13检查点的走法，3次尝试机会。（30分）">>
+<<set $t_extra2_title = "extra2. 另一张地图，5分钟内向工作人员说出16检查点到17检查点的走法，3次尝试机会。（40分）">>
+<<set $t_extra_0 = "未找出正确路线">>
+<<set $t_extra_50 = "超过3分钟找出正确路线">>
+<<set $t_extra_100 = "3分钟内找出正确路线">>
+<<set $t_extra1_result_0 = "extra1 得分：0分">>
+<<set $t_extra1_result_50 = "extra1 得分：15分">>
+<<set $t_extra1_result_100 = "extra1 得分：30分">>
+<<set $t_extra2_result_0 = "extra2 得分：0分">>
+<<set $t_extra2_result_50 = "extra2 得分：20分">>
+<<set $t_extra2_result_100 = "extra2 得分：40分">>
+<<set $t_skip_extra = "跳过所有进阶附加题">>
+
+/* 检查点数据 */
+<<include "Points_Data">>
+
+<</nobr>>
+
+
+:: ModelSelectBlock [widget] {"position":"375,450","size":"100,100"}
+<<widget "modeSelectBlock">>\
+    <div id="mode-select-area">\
+        <!-- 使用 listbox 让玩家选择模式 -->\
+        <<listbox "$mode" autoselect>>\
+            <<option `$t_welcome_mode_noMode` "noMode">>\
+            <<option `$t_welcome_mode_freshman` "freshman">>\
+            <<option `$t_welcome_mode_veteran` "veteran">>\
+        <</listbox>>\
+        <<button `$t_completed`>>\
+            <<if $mode === "noMode">>\
+                /* 未选择模式，重绘区域并加上警告 */\
+                <<replace "#mode-select-area">>\
+                    <div class="warning-msg">\
+                        <<print $t_experience>>\
+                    </div>\
+                    <<modeSelectBlock>>\
+                <</replace>>\
+            <<else>>\
+                /* 已选择模式，替换为对话和继续链接 */\
+                <<replace "#mode-select-area">>\
+                    <<playerChoiceSpeech>>\
+                    <<speech "Club" $t_club>><<print $t_go_together>><</speech>>\
+                    <<link `$t_continue` "Reach">><</link>>\
+                <</replace>>\
+            <</if>>\
+        <</button>>\
+    </div>\
+<</widget>>\
+
+
+:: PlayerChoiceSpeech [widget] {"position":"375,575","size":"100,100"}
+<<widget "playerChoiceSpeech">>\
+    <<set _choice to ($mode === "freshman" ? $t_welcome_mode_freshman : ($mode === "veteran" ? $t_welcome_mode_veteran : $t_welcome_mode_noMode))>>\
+    <<speech "You" $t_you>><<print _choice>><</speech>>\
+<</widget>>\
+
+
+:: Points_Data {"position":"225,450","size":"100,100"}
+<<set $points to [
+    { id: 2, choices: [
+        { labelKey: "red", target: "Pt3", score: 1 }
+    ]},
+    { id: 3, choices: [
+        { labelKey: "red", target: "Pt4", score: 4 },
+        { labelKey: "blue", target: "Pt4", score: 3 },
+        { labelKey: "orange", target: "Pt4", score: 5 }
+    ]},
+    { id: 4, choices: [
+        { labelKey: "red", target: "Pt5", score: 5 },
+        { labelKey: "blue", target: "Pt5", score: 4 },
+        { labelKey: "orange", target: "Pt5", score: 1 }
+    ]},
+    { id: 5, choices: [
+        { labelKey: "red", target: "Pt6", score: 5 },
+        { labelKey: "blue", target: "Pt6", score: 7 }
+    ]},
+    { id: 6, choices: [
+        { labelKey: "red", target: "Pt7", score: 5 },
+        { labelKey: "blue", target: "Pt7", score: 5 },
+        { labelKey: "orange", target: "Pt7", score: 3 }
+    ]},
+    { id: 7, choices: [
+        { labelKey: "red", target: "Pt8", score: 3 },
+        { labelKey: "blue", target: "Pt8", score: 4 },
+        { labelKey: "orange", target: "Pt8", score: 5 }
+    ]},
+    { id: 8, choices: [
+        { labelKey: "red", target: "Pt9", score: 5 },
+        { labelKey: "blue", target: "Pt9", score: 8 },
+        { labelKey: "orange", target: "Pt9", score: 7 },
+        { labelKey: "brown", target: "Pt9", score: 3}
+    ]},
+    { id: 9, choices: [
+        { labelKey: "red", target: "Pt10", score: 5 },
+        { labelKey: "blue", target: "Pt10", score: 2 },
+        { labelKey: "orange", target: "Pt10", score: 3 }
+    ]},
+    { id: 10, choices: [
+        { labelKey: "red", target: "Pt11", score: 4 },
+        { labelKey: "blue", target: "Pt11", score: 5 }
+    ]},
+    { id: 11, choices: [
+        { labelKey: "red", target: "Pt12", score: 4 },
+        { labelKey: "blue", target: "Pt12", score: 3 }
+    ]},
+    { id: 12, choices: [
+        { labelKey: "red", target: "Bonus_12", score: 1 },
+    ]},
+    { id: 13, choices: [
+        { labelKey: "red", target: "Pt14", score: 3 },
+        { labelKey: "blue", target: "Pt14", score: 8 },
+        { labelKey: "orange", target: "Pt14", score: 6 }
+    ]},
+    { id: 14, choices: [
+        { labelKey: "red", target: "Pt15", score: 5 },
+        { labelKey: "blue", target: "Pt15", score: 4 },
+        { labelKey: "orange", target: "Pt15", score: 3 }
+    ]},
+    { id: 15, choices: [
+        { labelKey: "red", target: "Pt16", score: 4 },
+        { labelKey: "blue", target: "Pt16", score: 4 }
+    ]},
+    { id: 16, choices: [
+        { labelKey: "red", target: "Pt17", score: 5 },
+        { labelKey: "blue", target: "Pt17", score: 6 }
+    ]},
+    { id: 17, choices: [
+        { labelKey: "red", target: "Pt18", score: 7 },
+        { labelKey: "blue", target: "Pt18", score: 5 },
+        { labelKey: "orange", target: "Pt18", score: 8 },
+        { labelKey: "brown", target: "Pt9", score: 7}
+    ]},
+    { id: 18, choices: [
+        { labelKey: "red", target: "Pt19", score: 6 },
+        { labelKey: "blue", target: "Pt19", score: 1 },
+        { labelKey: "orange", target: "Pt19", score: 2 }
+    ]},
+    { id: 19, choices: [
+        { labelKey: "red", target: "Pt20", score: 5 },
+        { labelKey: "blue", target: "Pt20", score: 4 }
+    ]},
+    { id: 20, choices: [
+        { labelKey: "red", target: "Bonus_20", score: 5 },
+        { labelKey: "blue", target: "Bonus_20", score: 7 }
+    ]}
+]>>
+
+
+:: Pt10 {"position":"700,1275","size":"100,100"}
+<<renderPoint 10>>
+
+
+:: Pt11 {"position":"700,1400","size":"100,100"}
+<<renderPoint 11>>
+
+
+:: Pt12 {"position":"700,1525","size":"100,100"}
+<<renderPoint 12>>
+
+
+:: Pt13 {"position":"700,1650","size":"100,100"}
+<<renderPoint 13>>
+
+
+:: Pt14 {"position":"700,1775","size":"100,100"}
+<<renderPoint 14>>
+
+
+:: Pt15 {"position":"700,1900","size":"100,100"}
+<<renderPoint 15>>
+
+
+:: Pt16 {"position":"700,2025","size":"100,100"}
+<<renderPoint 16>>
+
+
+:: Pt17 {"position":"700,2150","size":"100,100"}
+<<renderPoint 17>>
+
+
+:: Pt18 {"position":"700,2275","size":"100,100"}
+<<renderPoint 18>>
+
+
+:: Pt19 {"position":"700,2400","size":"100,100"}
+<<renderPoint 19>>
+
+
+:: Pt20 {"position":"700,2525","size":"100,100"}
+<<renderPoint 20>>
+
+
+:: Pt3 {"position":"700,400","size":"100,100"}
+<<renderPoint 3>>
+
+
+:: Pt4 {"position":"700,525","size":"100,100"}
+<<renderPoint 4>>
+
+
+:: Pt5 {"position":"700,650","size":"100,100"}
+<<renderPoint 5>>
+
+
+:: Pt6 {"position":"700,775","size":"100,100"}
+<<renderPoint 6>>
+
+
+:: Pt7 {"position":"700,900","size":"100,100"}
+<<renderPoint 7>>
+
+
+:: Pt8 {"position":"700,1025","size":"100,100"}
+<<renderPoint 8>>
+
+
+:: Pt9 {"position":"700,1150","size":"100,100"}
+<<renderPoint 9>>
+
+
+:: Reach {"position":"575,525","size":"100,100"}
+<img src = "img/scene.jpg" width = "600px">
+<<speech "Club" $t_club>><<print $t_place>><</speech>>\
+<<link `$t_start` "Start">><</link>>
+
+
+:: RenderPoint [widget] {"position":"375,200","size":"100,100"}
+<<widget "renderPoint">>\
+    <<if ndef $points>>\
+        <<include "Points_Data">>\
+    <</if>>\
+    <<if ndef $t_route_red>>\
+        <<if $lang === "zh">><<include "Lang_ZH">><<else>><<include "Lang_EN">><</if>>\
+    <</if>>\
+    <<set _pointId to Number($args[0])>>\
+    <<set _point to $points.find(function(p) { return p.id === _pointId; })>>\
+    <<set _imgBlank to "img/blank/" + _pointId + ".jpg">>\
+    <<set _imgRoute to "img/route/" + _pointId + ".jpg">>\
+    <<= '<div style="display: flex; gap: 10px; align-items: flex-start; margin-bottom: 10px;">' +
+        '<img src="' + _imgBlank + '" width="400px">' +
+        '<img src="' + _imgRoute + '" width="400px">' +
+        '</div>' >>\
+    <<if _pointId === 20>>\
+        <<print $t_target + _pointId + $t_point + $t_finish_point>>\
+    <<else>>\
+        <<print $t_target + _pointId + $t_point>>\
+    <</if>>\
+    <<print $t_you_choose>>
+    /* 路线选项按钮 */\
+    <<for _choice range _point.choices>>\
+        <<set _label = State.getVar("$t_route_" + _choice.labelKey)>>\
+        <<capture _choice _label>>\
+            <<if _choice.labelKey === "red">>\
+                <div class="route-btn-wrapper route-red">\
+                    <<button _label _choice.target>>\
+                        <<set $grade += _choice.score>>\
+                    <</button>>\
+                </div>\
+            <<elseif _choice.labelKey === "blue">>\
+                <div class="route-btn-wrapper route-blue">\
+                    <<button _label _choice.target>>\
+                        <<set $grade += _choice.score>>\
+                    <</button>>\
+                </div>\
+            <<elseif _choice.labelKey === "orange">>\
+                <div class="route-btn-wrapper route-orange">\
+                    <<button _label _choice.target>>\
+                        <<set $grade += _choice.score>>\
+                    <</button>>\
+                </div>\
+            <<else>>\
+                <div class="route-btn-wrapper route-brown">\
+                    <<button _label _choice.target>>\
+                        <<set $grade += _choice.score>>\
+                    <</button>>\
+                </div>\
+            <</if>>\
+        <</capture>>\
+    <</for>>\
+    /* 通用退出按钮（提前结束比赛） */\
+    <div class="quit-btn-wrapper">\
+        <<button $t_quick_end "Finish">><</button>>\
+    </div>\
+<</widget>>
+
+
+:: ShowMap [widget] {"position":"375,325","size":"100,100"}
+<<widget "showMap">>\
+    <<set _dialogTitle to $t_map>>\
+    <<set _dialogBody to `\
+        <div id="map-viewer" style="overflow: hidden; cursor: grab; display: flex; justify-content: center; align-items: center; max-height: 70vh;">\
+            <img src="img/map.jpg" alt="Map" class="zoomable-map" style="max-width: 100%; max-height: 70vh; transition: transform 0.1s ease-out; user-select: none; -webkit-user-drag: none;">\
+        </div>\
+    `>>\
+    <<run Dialog.setup(_dialogTitle, "dialog-image-viewer")>>\
+    <<run Dialog.wiki(_dialogBody)>>\
+    <<run Dialog.open()>>\
+    <<run setTimeout(setupMapZoom, 100)>>\
+<</widget>>
+
+
+:: Start {"position":"700,275","size":"100,100"}
+<<if $mode === "freshman">>\
+<<print $t_start_intro_freshman>>\
+<<else>>\
+<<print $t_start_intro_veteran>>\
+<</if>>\
+
+<<renderPoint 2>>
+
+
+:: StoryCaption {"position":"100,450","size":"100,100"}
+<div class="sidebar-status">\
+    <div><b><<print $t_sb_player>></b> $name</div>\
+    <div><b><<print $t_sb_mode>></b> \
+        <<if $mode === "freshman">><<print $t_mode_freshman>>\
+        <<elseif $mode === "veteran">><<print $t_mode_veteran>>\
+        <<else>><<print $t_mode_none>><</if>>\
+    </div>\
+    <div><b><<print $t_sb_score>></b> $grade</div>\
+    <div class="sidebar-button-wrapper">\
+        <<button $t_sb_view_map>><<showMap>><</button>>\
+    </div>\
+    <div class="sidebar-section-title"><<print $t_sb_cds_title>></div>\
+    <img src="img/CDS.jpg" alt="CDS" class="sidebar-map">\
+</div>\
+
+
+:: StoryDisplayTitle {"position":"100,200","size":"100,100"}
+Orienteering
+
+
+:: StoryInit {"position":"100,325","size":"100,100"}
+<<set $lang to "en">>\
+<<include "Lang_EN">>\
+<<set $grade to 0, $name to "NoName", $mode to "noMode">>\
+<<set $leaderboard to []>>\
+<<set $recorded to false>>
+
+
+:: Welcome {"position":"575,275","size":"100,100"}
+<<speech "Club" $t_club>><<print "你好！欢迎体验沉浸式定向越野游戏。请选择您的惯用语言。">>
+<<print "Hello and welcome to the immersive orienteering game! Please choose your preferred language.">><</speech>>
+<br>
+<<button "中文" "序章">>\
+	<<set $lang to "zh">>\
+	<<include "Lang_ZH">>\
+<</button>>\
+<br>
+<<button "English" "序章">>\
+	<<set $lang to "en">>\
+	<<include "Lang_EN">>\
+<</button>>
+
+
+
+:: 序章 {"position":"575,400","size":"100,100"}
+<!-- 使用 textbox 让玩家输入名称 -->\
+<<print $t_enter_name>> <<textbox "$name" "text_your_name_here">>
+
+<<linkreplace `$t_completed`>>\
+	<<speech "Club" $t_club>><<print $t_name_edited_completely_welcome + $name + $t_exclamation>><br><<print $t_background>><</speech>>
+<<modeSelectBlock>>
+<</linkreplace>>
+
+
+:: StoryScript [script]
+Macro.add('speech', {
+    tags: null,
+    handler: function () {
+        const id = this.args[0];
+        // 如果传了第二个参数就用作名字，否则用 id 本身作名字
+        const name = this.args[1] || id; 
+        
+        // 使用模板字符串增加可读性
+        const output = `<div class="speech ${id}">
+            <span class="avatar"></span>
+            <div class="speech-body">
+                <div class="speech-name">${name}</div>
+                <hr>
+                <div class="speech-content"></div>
+            </div>
+        </div>`;
+        
+        // 创建临时容器来渲染 HTML 和 Payload
+        const $output = $(output);
+        
+        // 单独渲染 payload，防止宏被破坏
+        const $content = $output.find('.speech-content');
+        new Wikifier($content[0], this.payload[0].contents); 
+        
+        $(this.output).append($output);
+    }
+});
+
+window.setupMapZoom = function() {
+    var viewer = document.getElementById('map-viewer');
+    if (!viewer) return; // 如果对话框没打开，或者地图没找到，直接退出
+    
+    var img = viewer.querySelector('img');
+    if (!img) return;
+
+    var scale = 1, posX = 0, posY = 0;
+    var startX, startY, isDragging = false;
+    var MIN_SCALE = 1, MAX_SCALE = 5;
+
+    // 1. 滚轮缩放
+    viewer.addEventListener('wheel', function(e) {
+        e.preventDefault();
+        var delta = e.deltaY < 0 ? 0.2 : -0.2;
+        scale = Math.min(Math.max(MIN_SCALE, scale + delta), MAX_SCALE);
+        if (scale === MIN_SCALE) { posX = 0; posY = 0; }
+        img.style.transform = 'translate(' + posX + 'px, ' + posY + 'px) scale(' + scale + ')';
+    });
+
+    // 2. 开始拖拽
+    viewer.addEventListener('mousedown', function(e) {
+        if (scale <= 1) return; // 只有放大后才能拖拽
+        isDragging = true;
+        startX = e.clientX - posX;
+        startY = e.clientY - posY;
+        viewer.style.cursor = 'grabbing';
+    });
+
+    // 3. 拖拽移动（绑定在 window 上，防止鼠标移出图片区域时断开）
+    window.addEventListener('mousemove', function(e) {
+        if (!isDragging) return;
+        posX = e.clientX - startX;
+        posY = e.clientY - startY;
+        img.style.transform = 'translate(' + posX + 'px, ' + posY + 'px) scale(' + scale + ')';
+    });
+
+    // 4. 停止拖拽
+    window.addEventListener('mouseup', function() {
+        isDragging = false;
+        if (viewer) viewer.style.cursor = 'grab';
+    });
+
+    // 5. 鼠标离开浏览器窗口时，强制停止拖拽
+    document.addEventListener('mouseleave', function() {
+        isDragging = false;
+        if (viewer) viewer.style.cursor = 'grab';
+    });
+};
+
+:: StoryStylesheet [stylesheet]
+/* ==========================================
+   1. 全局基础与排版 (Base & Typography)
+========================================== */
+#passages {
+    font-family: 'Segoe UI', 'Microsoft YaHei', system-ui, -apple-system, sans-serif;
+    line-height: 1.8;
+    color: #e0e0e0;
+    max-width: 800px; /* 限制正文宽度，阅读更舒适 */
+    margin: 0 auto;
+    padding: 20px 0;
+}
+
+/* 自定义滚动条，提升整体质感 */
+\::-webkit-scrollbar { width: 8px; }
+\::-webkit-scrollbar-track { background: #1a1a1a; }
+\::-webkit-scrollbar-thumb { background: #3b6b53; border-radius: 4px; }
+\::-webkit-scrollbar-thumb:hover { background: #4a7c5f; }
+
+/* ==========================================
+   2. 侧边栏 (Sidebar)
+========================================== */
+#ui-bar {
+    background-color: #1a1a1a; /* 比主背景略深，区分层级 */
+    border-right: 1px solid #333;
+}
+
+.sidebar-status {
+    text-align: left;
+    margin-top: 10px;
+    font-size: 14px;
+    background: rgba(255, 255, 255, 0.03); /* 增加微妙的卡片背景 */
+    padding: 12px;
+    border-radius: 8px;
+    border: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.sidebar-status div {
+    margin-bottom: 6px;
+}
+
+.sidebar-map {
+    width: 100%;
+    max-width: 200px;
+    height: auto;
+    margin-top: 8px;
+    border: 1px solid #4a7c5f; /* 用主题绿替代原黑色 */
+    border-radius: 6px;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.3);
+}
+
+/* 侧边栏按钮专属美化 */
+#ui-bar .sidebar-status button {
+    background: linear-gradient(145deg, #2b5a48, #1e4032); /* 微渐变，增加立体感 */
+    border: 1px solid #4a7c5f;
+    border-radius: 6px;
+    padding: 8px 12px;
+    font-size: 13px;
+    color: #eee;
+    margin-top: 10px;
+    margin-bottom: 0;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.2);
+    width: 100%;
+    transition: all 0.25s ease;
+}
+#ui-bar .sidebar-status button:hover {
+    background: linear-gradient(145deg, #3b6b53, #2b5a48);
+    border-color: #7dcfa3;
+    transform: translateY(-1px);
+    box-shadow: 0 4px 8px rgba(0,0,0,0.3);
+}
+
+/* ==========================================
+   3. 主界面按钮系统 (Buttons)
+========================================== */
+#passages button {
+    background: linear-gradient(145deg, #2b5a48, #1e4032);
+    border: 1px solid #4a7c5f;
+    border-radius: 8px;
+    padding: 12px 24px;
+    color: #fff;
+    font-size: 16px;
+    font-weight: 500;
+    transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+    cursor: pointer;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.3);
+    margin-bottom: 10px;
+}
+
+#passages button:hover {
+    background: linear-gradient(145deg, #3b6b53, #2b5a48);
+    border-color: #7dcfa3;
+    transform: translateY(-2px);
+    box-shadow: 0 6px 12px rgba(0,0,0,0.4);
+}
+
+#passages button:active {
+    transform: translateY(0);
+    box-shadow: 0 2px 4px rgba(0,0,0,0.3);
+}
+
+/* --- 路线按钮布局容器 --- */
+.route-btn-wrapper {
+    display: inline-block;
+    margin-right: 12px;
+    margin-bottom: 8px;
+}
+.quit-btn-wrapper {
+    margin-top: 20px; /* 与路线选项拉开距离 */
+}
+
+/* --- 红色路线按钮 --- */
+#passages .route-btn-wrapper.route-red button {
+    background: linear-gradient(145deg, #a83232, #852424);
+    border-color: #c44;
+    box-shadow: 0 4px 6px rgba(168, 50, 50, 0.3);
+}
+#passages .route-btn-wrapper.route-red button:hover {
+    background: linear-gradient(145deg, #c44, #a83232);
+    border-color: #d66;
+    box-shadow: 0 6px 12px rgba(255, 0, 0, 0.4);
+}
+
+/* --- 蓝色路线按钮 --- */
+#passages .route-btn-wrapper.route-blue button {
+    background: linear-gradient(145deg, #3266a8, #244a85);
+    border-color: #4a8bcc;
+    box-shadow: 0 4px 6px rgba(50, 102, 168, 0.3);
+}
+#passages .route-btn-wrapper.route-blue button:hover {
+    background: linear-gradient(145deg, #4a8bcc, #3266a8);
+    border-color: #6aaee6;
+    box-shadow: 0 6px 12px rgba(0, 0, 255, 0.4);
+}
+
+/* --- 橙色路线按钮 --- */
+#passages .route-btn-wrapper.route-orange button {
+    background: linear-gradient(145deg, #c46824, #9e5118);
+    border-color: #e08c3a;
+    box-shadow: 0 4px 6px rgba(196, 104, 36, 0.3);
+}
+#passages .route-btn-wrapper.route-orange button:hover {
+    background: linear-gradient(145deg, #e08c3a, #c46824);
+    border-color: #f0a656;
+    box-shadow: 0 6px 12px rgba(255, 165, 0, 0.4);
+}
+
+/* --- 棕色路线按钮 --- */
+#passages .route-btn-wrapper.route-brown button {
+    background: linear-gradient(145deg, #8B4513, #654321);
+    border-color: #A0522D;
+    box-shadow: 0 4px 6px rgba(139, 69, 19, 0.3);
+}
+#passages .route-btn-wrapper.route-brown button:hover {
+    background: linear-gradient(145deg, #A0522D, #8B4513);
+    border-color: #CD853F;
+    box-shadow: 0 6px 12px rgba(139, 69, 19, 0.5); 
+}
+
+/* --- 提前结束比赛按钮（危险警告样式） --- */
+#passages .quit-btn-wrapper button {
+    background: linear-gradient(145deg, #7a2929, #5c1b1b);
+    border-color: #a63a3a;
+    box-shadow: 0 4px 6px rgba(122, 41, 41, 0.3);
+}
+#passages .quit-btn-wrapper button:hover {
+    background: linear-gradient(145deg, #a63a3a, #7a2929);
+    border-color: #d55;
+    box-shadow: 0 6px 12px rgba(255, 0, 0, 0.5);
+}
+
+/* --- 附加题按钮组布局 --- */
+.bonus-options {
+    display: flex;       /* 启用弹性布局 */
+    flex-direction: column; /* 让按钮垂直排列 */
+    align-items: flex-start; /* 按钮靠左对齐 */
+    gap: 12px;           /* 核心：按钮之间的间距为 12px，替代所有 <br> */
+}
+
+/* --- 反馈文字的间距 --- */
+.bonus-feedback {
+    margin-bottom: 15px; /* 反馈文字与“继续”链接之间的间距 */
+}
+
+/* --- 附加题题目图片响应式样式 --- */
+.extra-image {
+    display: block;
+    max-width: 100%; /* 核心：限制最大宽度，自适应小屏幕 */
+    height: auto;
+    border-radius: 6px;
+    margin-bottom: 15px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.4);
+}
+
+/* --- 附加题题目与按钮组之间的标题间距 --- */
+.extra-subtitle {
+    font-weight: bold;
+    margin-bottom: 12px; /* 替代原来的 <br><br> */
+}
+
+/* ==========================================
+   4. 输入框与下拉菜单 (Inputs & Listbox)
+========================================== */
+input[type="text"], select {
+    background: rgba(0, 0, 0, 0.3);
+    border: 1px solid #555;
+    border-radius: 6px;
+    padding: 10px 14px;
+    color: #fff;
+    font-size: 16px;
+    transition: all 0.25s ease;
+    outline: none;
+}
+
+input[type="text"]:focus, select:focus {
+    border-color: #4a7c5f;
+    box-shadow: 0 0 0 3px rgba(74, 124, 95, 0.3);
+    background: rgba(0, 0, 0, 0.5);
+}
+
+/* 警告提示信息 */
+.warning-msg {
+    color: #f0ad4e; /* 橙色警告色 */
+    margin-top: 10px;
+    font-style: italic;
+    font-size: 14px;
+    font-weight: bold;
+}
+
+/* ==========================================
+   5. 图片查看器弹窗 (Dialog)
+========================================== */
+#ui-dialog-body.dialog-image-viewer {
+    padding: 15px; 
+    background: #111;
+    border-radius: 0 0 8px 8px; /* 底部圆角 */
+}
+#ui-dialog-body.dialog-image-viewer img {
+    max-width: 100%;
+    max-height: 70vh;
+    object-fit: contain;
+    border-radius: 4px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.5);
+}
+
+/* ==========================================
+   6. 角色对话气泡 (Speech)
+========================================== */
+.speech {
+    display: flex;
+    align-items: flex-start;
+    background-color: #fdfdfd; /* 偏暖的白色 */
+    border: 1px solid #ddd; /* 用浅灰边框替代硬黑色 */
+    border-radius: 10px;
+    padding: 15px;
+    margin-bottom: 20px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.15); /* 柔和的现代阴影 */
+    color: #333; /* 深灰色文字，比纯黑柔和 */
+}
+
+.speech-body {
+    flex-grow: 1;
+    min-width: 0;
+}
+
+.speech-name {
+    font-weight: bold;
+    font-size: 15px;
+    color: #111;
+    border-bottom: 1px solid #eee; /* 用极细的边框代替 <hr> */
+    padding-bottom: 6px;
+    margin-bottom: 8px;
+    display: block;
+}
+
+.speech-content {
+    font-size: 15px;
+    line-height: 1.6;
+}
+
+/* 头像 */
+.speech .avatar {
+    flex-shrink: 0;
+    width: 80px;
+    height: 80px;
+    margin-right: 15px;
+    border-radius: 8px;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+}
+
+/* --- 角色专属皮肤 --- */
+.speech.Club {
+    background-color: #fdf5e6; /* 暖色调底色 */
+    border-color: #f0d8b8;
+}
+.speech.Club .avatar {
+    background-image: url("img/icon.jpg");
+    border: 2px solid #E95412;
+}
+
+.speech.You {
+    background-color: #f4f8f4; /* 冷色调底色 */
+    border-color: #c8d8c8;
+}
+.speech.You .avatar {
+    background-image: url("img/you.jpg");
+    border: 2px solid #4a7c5f;
+}
+
+/* ==========================================
+   7. Finish 段落专属样式 (Leaderboard & QR)
+========================================== */
+.leaderboard-row {
+    display: flex;       /* 使用 Flex 布局，替代原来的 float */
+    align-items: center;
+    padding: 8px 0;
+    border-bottom: 1px solid #444; /* 微调颜色，与暗色背景更融合 */
+}
+
+.leaderboard-name {
+    color: #fff;
+}
+
+.leaderboard-score {
+    margin-left: auto;   /* 将得分推到右侧 */
+    margin-right: 15px;  /* 与模式标签留出间距 */
+    color: #ffd700;      /* 金色保留 */
+    font-weight: bold;
+}
+
+.leaderboard-mode {
+    font-size: 0.8em;
+    color: #aaa;
+    width: 4em;          /* 固定宽度，让所有行的模式对齐 */
+    text-align: right;
+}
+
+.finish-qrcode {
+    display: block;
+    max-width: 100%;     /* 移动端适配，防止图片超出屏幕 */
+    width: 500px;        /* 设定基础宽度 */
+    height: auto;
+    border-radius: 6px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.4);
+    margin-top: 15px;
+}
+
+/* ==========================================
+   8. StoryMenu 菜单按钮 (Sidebar Menu)
+========================================== */
+.sidebar-menu-wrapper {
+    margin-top: 15px;
+}
+
+.sidebar-menu-wrapper button {
+    background: linear-gradient(145deg, #2b5a48, #1e4032);
+    border: 1px solid #4a7c5f;
+    border-radius: 6px;
+    padding: 8px 12px;
+    font-size: 13px;
+    color: #eee;
+    margin-top: 10px;
+    margin-bottom: 0;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.2);
+    width: 100%;
+    transition: all 0.25s ease;
+}
+.sidebar-menu-wrapper button:hover {
+    background: linear-gradient(145deg, #3b6b53, #2b5a48);
+    border-color: #7dcfa3;
+    transform: translateY(-1px);
+    box-shadow: 0 4px 8px rgba(0,0,0,0.3);
+}
